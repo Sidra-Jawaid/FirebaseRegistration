@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".UserProfile">
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawerlayout">
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nabview"
+            android:background="#fff"
+            app:headerLayout="@layout/header_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:layout_marginTop="49dp"
+            app:menu="@menu/menu_item"/>
+    </android.support.v4.widget.DrawerLayout>
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/border"
+        android:elevation="10dp"
+        android:id="@+id/relayout">
+        <android.support.v7.widget.SearchView
+            app:defaultQueryHint="search here......"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v7.widget.Toolbar>
+    <FrameLayout
+        android:id="@+id/homescreenfragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</android.support.constraint.ConstraintLayout>

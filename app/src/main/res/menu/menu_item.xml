@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:id="@+id/one"
+    android:title="Profile"
+        android:icon="@drawable/profile"/>
+    <item
+        android:id="@+id/two"
+        android:title="Gallery"
+        android:icon="@drawable/gallery"
+        />
+    <item
+        android:id="@+id/three"
+        android:title="Sign out"/>
+    <item
+        android:id="@+id/four"
+        android:title="Favorites"
+        android:icon="@drawable/favorite"/>
+    <item
+        android:id="@+id/five"
+        android:title="My location"/>
+    <item
+        android:id="@+id/six"
+        android:title="Settings"/>
+    <item
+        android:id="@+id/seven"
+        android:title="About Us"/>
+
+</menu>

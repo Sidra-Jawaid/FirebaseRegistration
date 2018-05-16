@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="@string/hello_blank_fragment" />
+
+    <Switch
+        android:id="@+id/toggle1"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="21dp"
+        android:layout_marginTop="64dp"
+        android:text="Enable fields" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:src="@drawable/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
+        app:civ_border_color="#bcb7b7"
+        app:civ_border_width="2dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tex1"
+        android:layout_width="128dp"
+        android:layout_height="34dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="194dp"
+        android:text="Enter Name"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edittext1"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tex1"
+        android:layout_toEndOf="@+id/text4"
+        android:gravity="center"
+        android:hint="type name"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/tex1"
+        android:layout_marginTop="257dp"
+        android:text="Enter age"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/uepedittext4"
+        android:layout_width="159dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text4"
+        android:layout_alignEnd="@+id/toggle1"
+        android:gravity="center"
+        android:hint="your age"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/tex1"
+        android:layout_marginBottom="207dp"
+        android:text="Select Country"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edittext1"
+        android:layout_alignTop="@+id/text5" />
+    <TextView
+        android:id="@+id/temptextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnSaveChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:text="Save Changes!" />
+
+
+</RelativeLayout>
