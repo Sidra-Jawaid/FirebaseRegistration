@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ import java.util.Map;
  * A simple {@link Fragment} subclass.
  */
 public class FavoriteNews extends Fragment {
-    ArrayList data_list=new ArrayList();
+    ArrayList<Article> data_list=new ArrayList();
     RecyclerView recyclerView;
     Map<String,Object> article;
     FirebaseAuth mFirebaseAuth;
@@ -51,10 +52,10 @@ public class FavoriteNews extends Fragment {
         recyclerView=v.findViewById(R.id.rvsaved);
         mFirebaseAuth= FirebaseAuth.getInstance();
         mDatabaseReference= FirebaseDatabase.getInstance().getReference().child("users").child(mFirebaseAuth.getUid()).child("FavoriteNews");
-        rac=new RecyclerAdapter(data_list);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         getDatafromDatabase();
-        rac.notifyDataSetChanged();
+        //rac.notifyDataSetChanged();
 
         return v;
     }
@@ -65,32 +66,16 @@ public class FavoriteNews extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG,"children count = "+dataSnapshot.getChildrenCount());
                 Log.d(TAG,"Array index = "+dataSnapshot.getValue()+"\n\n\n");
-                for(DataSnapshot ds:dataSnapshot.getChildren())
-                {
-                    GenericTypeIndicator<Map<String,Object>> genericTypeIndicator = new GenericTypeIndicator<Map<String,Object>>() {};
-                    article = ds.getValue(genericTypeIndicator );
 
-                }
-                for(Object obj:article.values())
-                {
-                    data_list.add(obj);
-                    Log.d("Article = ",""+data_list);
-                }
-
-
-                /*for(int i=0;i<=dataSnapshot.getChildrenCount()-1;i++)
-                {
-                    data_list.add(article.get(i).toString());*//*.getSource().getId(),article.get(i).getSource().getName())
-                            ,article.get(i).getAuthor()
-                            ,article.get(i).getTitle()
-                            ,article.get(i).getDescription()
-                            ,article.get(i).getUrl()
-                            ,article.get(i).getUrlToImage()));*//*
-                }
+                ArrayList<Article> data  = new ArrayList<Article>();
+                GenericTypeIndicator<ArrayList<Article>> t = new GenericTypeIndicator<ArrayList<Article>>() {};
+                data = dataSnapshot.getValue(t);
+                data_list = data;
+                rac = new RecyclerAdapter(data);
+                recyclerView.setAdapter(rac);
+                rac.notifyDataSetChanged();
                 rac=new RecyclerAdapter(data_list);
                 recyclerView.setAdapter(rac);
-                RecyclerView.ItemDecoration itemDecoration=new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
-                recyclerView.addItemDecoration(itemDecoration);*/
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

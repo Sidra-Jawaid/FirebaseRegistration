@@ -61,7 +61,6 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
         mActioBarDrawertoggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mNavigationView.setNavigationItemSelectedListener(this);
-
         View headerview=mNavigationView.getHeaderView(0);
         nametext=(TextView)headerview.findViewById(R.id.layouttext1);
         emailtext= (TextView)headerview.findViewById(R.id.layouttext2);
@@ -102,8 +101,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             }
         });
 
-        fm =getSupportFragmentManager();
-        ft=fm.beginTransaction();
+
     }
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -132,6 +130,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(UserProfile.this, "Item1 clicked", Toast.LENGTH_SHORT).show();
             EditProfileFragment editProfileFragment=new EditProfileFragment();
             fm =getSupportFragmentManager();
+            ft=fm.beginTransaction();
             ft.replace(R.id.homescreenfragment,editProfileFragment).commit();
         }
         else if(id==R.id.two)
@@ -140,6 +139,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(UserProfile.this, "Item2 clicked", Toast.LENGTH_SHORT).show();
             NewsFragment newsFragment=new NewsFragment();
             fm =getSupportFragmentManager();
+            ft=fm.beginTransaction();
             ft.replace(R.id.homescreenfragment,newsFragment).commit();
         }
         else if(id==R.id.three)
@@ -154,7 +154,8 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(UserProfile.this, "Item4 clicked", Toast.LENGTH_SHORT).show();
             FavoriteNews favoriteNews=new FavoriteNews();
             fm =getSupportFragmentManager();
-            ft.addToBackStack(null).replace(R.id.homescreenfragment,favoriteNews).commit();
+            ft=fm.beginTransaction();
+            ft.replace(R.id.homescreenfragment,favoriteNews).commit();
         }
         else if(id==R.id.five)
         {
@@ -174,53 +175,6 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
             Toast.makeText(UserProfile.this, "Item3 clicked", Toast.LENGTH_SHORT).show();
             aboutUsDialog();
         }
-
-        /*switch (item.getItemId())
-        {
-            case R.id.one:
-                Log.d(TAG,"item1 clicked");
-                Toast.makeText(UserProfile.this, "Item1 clicked", Toast.LENGTH_SHORT).show();
-                EditProfileFragment editProfileFragment=new EditProfileFragment();
-                ft.addToBackStack(null);
-                ft.add(R.id.homescreenfragment,editProfileFragment);
-                //ft.commit();
-                break;
-            case R.id.two:
-                Log.d(TAG,"item2 clicked");
-                Toast.makeText(UserProfile.this, "Item2 clicked", Toast.LENGTH_SHORT).show();
-                NewsFragment newsFragment=new NewsFragment();
-                ft.addToBackStack(null);
-                ft.add(R.id.homescreenfragment,newsFragment);
-                //ft.commit();
-                break;
-            case R.id.three:
-                Log.d(TAG,"item3 clicked");
-                Toast.makeText(UserProfile.this, "Item3 clicked", Toast.LENGTH_SHORT).show();
-                signOutDialogFragment();
-                //startActivity(new Intent(getApplication(),LogIn.class));
-
-            case R.id.four:
-                Log.d(TAG,"item4 clicked");
-                Toast.makeText(UserProfile.this, "Item4 clicked", Toast.LENGTH_SHORT).show();
-                FavoriteNews favoriteNews=new FavoriteNews();
-                ft.addToBackStack(null);
-                ft.add(R.id.homescreenfragment,favoriteNews);
-                //ft.commit();
-
-            case R.id.five:
-                Log.d(TAG,"item5 clicked");
-                Toast.makeText(UserProfile.this, "Item5 clicked", Toast.LENGTH_SHORT).show();
-
-            case R.id.six:
-                Log.d(TAG,"item6 clicked");
-                Toast.makeText(UserProfile.this, "Item5 clicked", Toast.LENGTH_SHORT).show();
-
-            case R.id.seven:
-                Log.d(TAG,"item7 clicked");
-                Toast.makeText(UserProfile.this, "Item5 clicked", Toast.LENGTH_SHORT).show();
-                //aboutUsDialog();
-
-        }*/
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

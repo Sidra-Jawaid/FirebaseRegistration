@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
@@ -66,7 +67,7 @@ public class NewsFragment extends Fragment {
         mRecyclerAdapter=new RecyclerAdapter(mArrayList);
         RecyclerView.ItemDecoration itemDecoration=new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(itemDecoration);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mRecyclerAdapter);
         savedarrayList = ((RecyclerAdapter) mRecyclerView.getAdapter()).getArrayList();
         itemMethod();
@@ -125,24 +126,12 @@ public class NewsFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
-   /* public interface onFragmentDataSend{
-        void sendDataToActivity(String s);
-    }
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        try{
-            listener=(onFragmentDataSend)context;
-        }
-        catch (ClassCastException e)
-        {
-
-        }
-    }*/
    public void tempMethod()
    {
        Log.d(TAG,"here is data");
        //DataModel dataModel=new DataModel(savedarrayList);
        Log.d(TAG,"array sent to firebase");
        mDatabaseReference.setValue(savedarrayList);
+
    }
 }

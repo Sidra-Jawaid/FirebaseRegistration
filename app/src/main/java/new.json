@@ -1,0 +1,23 @@
+{
+  urlToImage="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/05/21/105220561-iran_deal_javad_zarif.1910x1000.jpg",
+title="The EU’s support for the Iran deal is ‘not sufficient,’ Tehran says",
+source={
+  name=Google
+} News, id=google-news},
+description=European leaders have been scrambling to save the Iranian nuclear deal after the Donald Trump administration announced its withdrawal on May 8.,
+url="https://www.cnbc.com/2018/05/21/the-eus-support-for-the-iran-deal-is-not-sufficient-tehran-says.html, author=Natasha Turak"
+},
+{
+urlToImage="https://www.washingtonpost.com/resizer/BWn7etqzrJ9f109kEu7rIoUpO3M=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/CJTHJXFTZQ6O3PI46TV6K7ANTA.jpg",
+title=He took his family to lunch, left the table and rammed them with his car, killing two, police say,
+source={name=Google News, id=google-news},
+description=The driver, an ex-police officer, was wrestling with mental illness, according to a family friend.,
+url="https://www.washingtonpost.com/news/morning-mix/wp/2018/05/21/he-took-his-family-to-lunch-left-the-table-and-rammed-them-with-his-car-killing-two-police-say/"},
+{urlToImage="https://images.wsj.net/im-11300/social",
+title="Treasury, USTR Send Mixed Messages Over Tariffs on Chinese Imports​",
+source={
+name=Google News, id=google-news
+},
+description="The Treasury secretary and the administration’s top trade official took markedly different positions over whether the U.S. will move forward with tariffs on Chinese imports, punctuating several days of negotiations between the world’s two biggest economies wi…",
+url="https://www.wsj.com/articles/mnuchin-says-tariffs-on-hold-while-u-s-negotiates-trade-deal-with-china-1526833109, author=Bob Davis"
+}

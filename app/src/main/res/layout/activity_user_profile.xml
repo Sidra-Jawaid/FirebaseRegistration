@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:layout_marginTop="49dp"
+
         app:menu="@menu/menu_item"/>
 </android.support.v4.widget.DrawerLayout>
 
