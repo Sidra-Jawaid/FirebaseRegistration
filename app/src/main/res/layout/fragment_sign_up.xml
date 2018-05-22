@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/frag2"
     android:background="#fff"
-    tools:context=".SignUp">
+    tools:context=".MainApplicationContent.SignUp">
 
 
     <TextView

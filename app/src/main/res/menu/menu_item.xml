@@ -6,24 +6,27 @@
         android:icon="@drawable/profile"/>
     <item
         android:id="@+id/two"
-        android:title="Gallery"
-        android:icon="@drawable/gallery"
-        />
+        android:title="News"
+        android:icon="@drawable/gallery" />
     <item
         android:id="@+id/three"
+        android:icon="@drawable/signout"
         android:title="Sign out"/>
     <item
         android:id="@+id/four"
-        android:title="Favorites"
+        android:title="Favorite News"
         android:icon="@drawable/favorite"/>
     <item
         android:id="@+id/five"
+        android:icon="@drawable/map"
         android:title="My location"/>
     <item
         android:id="@+id/six"
+        android:icon="@drawable/settings"
         android:title="Settings"/>
     <item
         android:id="@+id/seven"
+        android:icon="@drawable/aboutus"
         android:title="About Us"/>
 
 </menu>

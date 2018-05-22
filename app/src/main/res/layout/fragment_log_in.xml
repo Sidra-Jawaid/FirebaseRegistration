@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/frag1"
     android:background="@drawable/background_login"
-    tools:context=".LogIn">
+    tools:context=".MainApplicationContent.LogIn">
 
    <!-- <ImageView
         android:id="@+id/image1"

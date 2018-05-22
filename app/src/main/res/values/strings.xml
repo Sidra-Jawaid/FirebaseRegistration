@@ -5,4 +5,13 @@
     <string name="hello_blank_fragment">My Profile</string>
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
+    <string-array name="spinneritem">
+        <item>Select Location</item>
+        <item>Balochistan,Pakistan</item>
+        <item>Karachi,Pakistan</item>
+        <item>Islamabad,Pakistan</item>
+        <item>Lahore,Pakistan</item>
+        <item>Multan,Pakistan</item>
+        <item>Faisalabad,Pakistan</item>
+    </string-array>
 </resources>

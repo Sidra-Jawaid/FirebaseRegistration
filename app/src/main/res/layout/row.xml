@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:elevation="5dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+
+        android:id="@+id/newstitle"
+        android:textStyle="bold"
+        android:layout_width="325dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/newseurl"
+        android:layout_marginTop="16dp"
+        android:text="Title" />
+
+    <TextView
+        android:id="@+id/newseurl"
+        android:layout_width="153dp"
+        android:layout_height="94dp"
+        android:layout_alignStart="@+id/description"
+        android:layout_centerVertical="true"
+        android:text="Click to see full news " />
+
+    <ImageView
+        android:id="@+id/newimageurl"
+        android:layout_width="153dp"
+        android:layout_height="88dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="urltoimage" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="324dp"
+        android:layout_height="63dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:text="description" />
+
+    <TextView
+        android:id="@+id/sourceid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/newstitle"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="70dp"
+        android:text="sourceid" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/newstitle"
+        android:layout_alignTop="@+id/sourceid"
+        android:text="author" />
+
+    <TextView
+        android:id="@+id/sourcename"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/sourceid"
+        android:layout_marginEnd="110dp"
+        android:text="name" />
+</RelativeLayout>

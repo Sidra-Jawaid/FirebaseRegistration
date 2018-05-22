@@ -1,9 +1,11 @@
-package com.example.sidrajawaid.demofirebase;
+package com.example.sidrajawaid.demofirebase.MainApplicationContent;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 
 public class DataModel {
     private String userEmail;
@@ -12,6 +14,9 @@ public class DataModel {
     private String userLocation;
     private String userID;
     private Uri userImageUrl;
+    //saved array list
+   //private ArrayList savedlist;
+
 
     public DataModel(String email,String fullname, String age, String location,String id,Uri imageurl) {
         this.userFullname=fullname;
@@ -21,6 +26,11 @@ public class DataModel {
         this.userEmail=email;
         this.userImageUrl=imageurl;
     }
+
+    /*public DataModel(ArrayList array) {
+        this.savedlist=array;
+
+    }*/
     public DataModel(String email,String fullname, String age, String location,String id) {
         this.userFullname=fullname;
         this.userAge = age;
@@ -70,4 +80,11 @@ public class DataModel {
     public void setUserImageUrl(Uri userImageUrl) {
         this.userImageUrl = userImageUrl;
     }
+
+    /*public ArrayList getSavedlist() {
+        return savedlist;
+    }
+    public void setSavedlist(ArrayList savedlist) {
+        this.savedlist = savedlist;
+    }*/
 }

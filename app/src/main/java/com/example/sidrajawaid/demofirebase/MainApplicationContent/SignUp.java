@@ -1,4 +1,4 @@
-package com.example.sidrajawaid.demofirebase;
+package com.example.sidrajawaid.demofirebase.MainApplicationContent;
 
 
 import android.app.ProgressDialog;
@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PatternMatcher;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,6 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,27 +26,24 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sidrajawaid.demofirebase.MainApplicationContent.DataModel;
+import com.example.sidrajawaid.demofirebase.MainApplicationContent.LogIn;
+import com.example.sidrajawaid.demofirebase.R;
 import com.firebase.client.Firebase;
-import com.firebase.client.core.Constants;
-import com.firebase.tubesock.Base64;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -65,7 +60,7 @@ public class SignUp extends Fragment {
     Spinner country_spinner;
     Button btn;
     FirebaseAuth firebaseAuth;
-    StorageReference firebaseStorage;
+    StorageReference firebaseStorage,getpic;
     DatabaseReference firebase;
     Bitmap bitmap;
     ArrayList spinneritem=new ArrayList<>();
@@ -86,8 +81,8 @@ public class SignUp extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
         Firebase.setAndroidContext(getContext());
         firebase=FirebaseDatabase.getInstance().getReference();
-        //firebaseStorage=FirebaseStorage.getInstance().getReference("profilepics/"+System.currentTimeMillis()+".jpg");
         firebaseStorage=FirebaseStorage.getInstance().getReference("profilepics/");
+        getpic=FirebaseStorage.getInstance().getReference("profilepics/").child("noimage.png");
         spinneritem.add("Select Location");
         spinneritem.add("Balochistan,Pakistan");
         spinneritem.add("Karachi,Pakistan");
@@ -184,12 +179,26 @@ public class SignUp extends Fragment {
                 bitmap= MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),imageUri);
                 profile_image.setImageBitmap(bitmap);
             } catch (IOException e) {
-                profile_image.setImageResource(R.drawable.noimage);
                 e.printStackTrace();
             }
         }
-        else {
-            profile_image.setImageResource(R.drawable.noimage);
+        else
+        {
+            getpic.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    imageUri= Uri.parse("https://firebasestorage.googleapis.com/v0/b/demofirebase-7d7d6.appspot.com/o/profilepics%2Fnoimage.png?alt=media&token=1bff4b60-6a59-4687-91b2-936b1fc9e09e");
+                    Log.d(TAG, "milgaya url");
+                    //Picasso.with(getContext()).load("https://firebasestorage.googleapis.com/v0/b/demofirebase-7d7d6.appspot.com/o/profilepics%2Fnoimage.png?alt=media&token=1bff4b60-6a59-4687-91b2-936b1fc9e09e").into(profile_image);
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG, "nhi milgaya url ...............");
+                }
+            });
+
         }
     }
     public void sendingImageToStorage()
@@ -201,13 +210,14 @@ public class SignUp extends Fragment {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(getContext(), "Upload done", Toast.LENGTH_SHORT).show();
+                            Uri downloadUri = taskSnapshot.getDownloadUrl();
+                            Toast.makeText(getContext(), "Upload done = "+downloadUri, Toast.LENGTH_SHORT).show();
                         }
 
                     });
         }
         else {
-            profile_image.setImageResource(R.drawable.noimage);
+            //profile_image.setImageResource(R.drawable.noimage);
         }
     }
     public void setDataToFirebase()

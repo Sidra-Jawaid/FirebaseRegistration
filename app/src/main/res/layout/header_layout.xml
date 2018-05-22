@@ -12,10 +12,10 @@
         android:layout_height="117dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:src="@drawable/person"
-        app:civ_border_color="@color/colorPrimary"
-        app:civ_border_width="3dp"
-        />
+        app:civ_border_color="@android:color/holo_green_dark"
+        app:civ_border_width="3dp" />
 
     <TextView
         android:id="@+id/layouttext1"
