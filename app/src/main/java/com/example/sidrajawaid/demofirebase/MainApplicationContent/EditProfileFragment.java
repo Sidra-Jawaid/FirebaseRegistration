@@ -68,12 +68,13 @@ public class EditProfileFragment extends Fragment {
     ImageView uProfileImage;
     TextView tv1;
     int ageInt;
-    String nName,nAge,nLocation,nID,nEmail;      //variables for new values
+    private String nName,nAge,nLocation,nID,nEmail;      //variables for new values
     ArrayAdapter spinneradapter,tempadapter;
     ArrayList spinneritem=new ArrayList<>();
     ArrayList tempspinner=new ArrayList<>();
     public static final String TAG="EditProfileFragment";
     public static final int RESULT_CODE=000;
+    Uri noimage= Uri.parse("https://firebasestorage.googleapis.com/v0/b/demofirebase-7d7d6.appspot.com/o/profilepics%2Fnoimage.png?alt=media&token=1bff4b60-6a59-4687-91b2-936b1fc9e09e");
     public EditProfileFragment() {
         // Required empty public constructor
     }
@@ -145,7 +146,8 @@ public class EditProfileFragment extends Fragment {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Picasso.with(getContext()).load("https://firebasestorage.googleapis.com/v0/b/demofirebase-7d7d6.appspot.com/o/profilepics%2Fnoimage.png?alt=media&token=1bff4b60-6a59-4687-91b2-936b1fc9e09e").into(uProfileImage);
+                Log.d(TAG,"image save mhi ha = "+ e.getMessage());
+                Picasso.with(getContext()).load(noimage).into(uProfileImage);
             }
         });
 
@@ -161,7 +163,6 @@ public class EditProfileFragment extends Fragment {
                     uLocation.setAdapter(spinneradapter);
                     uProfileImage.setEnabled(true);
                     Toast.makeText(getContext(), "is checked", Toast.LENGTH_SHORT).show();
-                    check=true;
                     performingValidation();
                 }
                 else
@@ -188,7 +189,6 @@ public class EditProfileFragment extends Fragment {
                     Toast.makeText(getContext(), "Make some changes to be saved", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
             }
         });
         uProfileImage.setOnClickListener(new View.OnClickListener() {
@@ -199,10 +199,8 @@ public class EditProfileFragment extends Fragment {
                 uploadImage();
             }
         });
-
         return v;
     }
-
     private void disableEverything() {
         Toast.makeText(getContext(), "changes saved", Toast.LENGTH_SHORT).show();
         profileeditswitch.setChecked(false);
@@ -230,7 +228,6 @@ public class EditProfileFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-
     }
     public void sendingImageToStorage()
     {
@@ -242,9 +239,14 @@ public class EditProfileFragment extends Fragment {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Uri downloadUri = taskSnapshot.getDownloadUrl();
                             Toast.makeText(getContext(), "Upload done = "+downloadUri, Toast.LENGTH_SHORT).show();
+                            Log.d(TAG,"image upload hogai ha  ");
                         }
-
-                    });
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d(TAG,"image upload nhi hoe ");
+                }
+            });
         }
     }
     //PERFORM VALIDATION
@@ -259,7 +261,7 @@ public class EditProfileFragment extends Fragment {
             uName.setError("Please enter new Name");
             return false;
         }
-        // validattion for age
+        // validation for age
         try
         {
             //user_age= Integer.parseInt(string_userage);
@@ -283,7 +285,7 @@ public class EditProfileFragment extends Fragment {
             setSpinnerError(uLocation,"Select Location");
             return false;
         }
-
+        check=true;
         return true;
     }
     //SETTING DATA TO FIREBASE

@@ -15,7 +15,7 @@ public class DataModel {
     private String userID;
     private Uri userImageUrl;
     //saved array list
-   //private ArrayList savedlist;
+   private ArrayList savedlist;
 
 
     public DataModel(String email,String fullname, String age, String location,String id,Uri imageurl) {
@@ -27,10 +27,10 @@ public class DataModel {
         this.userImageUrl=imageurl;
     }
 
-    /*public DataModel(ArrayList array) {
+    public DataModel(ArrayList array) {
         this.savedlist=array;
 
-    }*/
+    }
     public DataModel(String email,String fullname, String age, String location,String id) {
         this.userFullname=fullname;
         this.userAge = age;
@@ -81,10 +81,10 @@ public class DataModel {
         this.userImageUrl = userImageUrl;
     }
 
-    /*public ArrayList getSavedlist() {
+    public ArrayList getSavedlist() {
         return savedlist;
     }
     public void setSavedlist(ArrayList savedlist) {
         this.savedlist = savedlist;
-    }*/
+    }
 }

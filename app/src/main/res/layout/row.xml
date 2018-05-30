@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:padding="10dp"
@@ -9,63 +9,76 @@
 
 
     <TextView
-
         android:id="@+id/newstitle"
-        android:textStyle="bold"
-        android:layout_width="325dp"
-        android:layout_height="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/newseurl"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="16dp"
-        android:text="Title" />
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/newseurl"
-        android:layout_width="153dp"
-        android:layout_height="94dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignStart="@+id/description"
         android:layout_centerVertical="true"
-        android:text="Click to see full news " />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="230dp"
+        android:textColor="@color/colorPrimary" />
 
     <ImageView
         android:id="@+id/newimageurl"
-        android:layout_width="153dp"
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
         android:layout_height="88dp"
+        android:scaleType="fitXY"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:text="urltoimage" />
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="324dp"
-        android:layout_height="63dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="220dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="280dp"
         android:text="description" />
 
     <TextView
         android:id="@+id/sourceid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_alignEnd="@+id/newstitle"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="170dp"
         android:text="sourceid" />
 
     <TextView
         android:id="@+id/author"
-        android:layout_width="150dp"
+        android:layout_width="179dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/newstitle"
         android:layout_alignTop="@+id/sourceid"
-        android:text="author" />
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="170dp"
+        android:text="author"
+        android:textColor="#cf34" />
 
     <TextView
         android:id="@+id/sourcename"
-        android:layout_width="45dp"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/sourceid"
-        android:layout_marginEnd="110dp"
-        android:text="name" />
-</RelativeLayout>
+        android:layout_marginLeft="280dp"
+
+        android:layout_marginTop="170dp" />
+</android.support.v7.widget.CardView>

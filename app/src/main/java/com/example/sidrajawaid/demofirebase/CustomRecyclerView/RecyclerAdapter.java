@@ -1,6 +1,7 @@
 package com.example.sidrajawaid.demofirebase.CustomRecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sidrajawaid.demofirebase.FirebaseData.SendFirebaseData;
 import com.example.sidrajawaid.demofirebase.MainApplicationContent.DataModel;
@@ -36,8 +38,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     ArrayList<Article> arrayList;
     Article example;
     String temp1,temp2;
-    //ArrayList arrayList;
-    ArrayList saveditems=new ArrayList();
+    Article article=new Article();
+    //ArrayList saveditems=new ArrayList();
 
     public RecyclerAdapter(ArrayList arrayList) {
         this.arrayList = arrayList;
@@ -57,7 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     }
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Article example= arrayList.get(position);
+        final Article example= arrayList.get(position);
         holder.tv0.setText(example.getSource().getId());
         holder.tv1.setText(example.getTitle());
         holder.tv2.setText(example.getDescription());
@@ -76,15 +78,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         notifyDataSetChanged();
     }
     public void addView(int pos) {
-        //Log.i("RecyclerAdapterClass","data is "+arrayList.get(pos).getImageview()+" "+arrayList.get(pos).getTextview1()+" "+arrayList.get(pos).getTextview2());
-        saveditems.add(arrayList.get(pos));
+        article.setArt(arrayList.get(pos));
         arrayList.remove(pos);
         this.notifyDataSetChanged();
         this.notifyItemRangeChanged(pos,arrayList.size());
     }
-    public ArrayList<DataModel> getArrayList() {
-        //notifyDataSetChanged();
-        return saveditems;
+    public void dismissView(int pos)
+    {
+        arrayList.remove(pos);
+        this.notifyItemRemoved(pos);
+        this.notifyItemRangeChanged(pos,arrayList.size());
+    }
+    public String getDissmisArticleTitle(int pos) {
+        String dissmisviewtitle=arrayList.get(pos).getTitle();
+        return dissmisviewtitle;
+    }
+    public Article getArticle()
+    {
+        return article;
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv0;

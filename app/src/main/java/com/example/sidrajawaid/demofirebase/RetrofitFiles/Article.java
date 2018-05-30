@@ -4,6 +4,7 @@ package com.example.sidrajawaid.demofirebase.RetrofitFiles;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -32,6 +33,7 @@ public class Article implements Serializable
     @SerializedName("publishedAt")
     @Expose
     private String publishedAt;
+    private Article article;
     private final static long serialVersionUID = -1495579234405678029L;
 
     /**
@@ -70,6 +72,10 @@ public class Article implements Serializable
         this.url = url;
         this.urlToImage = urlToImage;
     }
+
+    /*public Article(Article article) {
+        this.article=article;
+    }*/
 
     public Source getSource() {
         return source;
@@ -131,6 +137,14 @@ public class Article implements Serializable
         this.url = url;
     }
 
+    public Article getArt() {
+        return article;
+    }
+
+    public void setArt(Article art) {
+        this.article = art;
+    }
+
     public Article withUrl(String url) {
         this.url = url;
         return this;
@@ -148,7 +162,6 @@ public class Article implements Serializable
         this.urlToImage = urlToImage;
         return this;
     }
-
     public String getPublishedAt() {
         return publishedAt;
     }
@@ -161,5 +174,4 @@ public class Article implements Serializable
         this.publishedAt = publishedAt;
         return this;
     }
-
 }

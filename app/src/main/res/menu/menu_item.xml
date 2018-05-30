@@ -8,10 +8,7 @@
         android:id="@+id/two"
         android:title="News"
         android:icon="@drawable/gallery" />
-    <item
-        android:id="@+id/three"
-        android:icon="@drawable/signout"
-        android:title="Sign out"/>
+
     <item
         android:id="@+id/four"
         android:title="Favorite News"
@@ -24,6 +21,10 @@
         android:id="@+id/six"
         android:icon="@drawable/settings"
         android:title="Settings"/>
+    <item
+        android:id="@+id/three"
+        android:icon="@drawable/signout"
+        android:title="Sign out"/>
     <item
         android:id="@+id/seven"
         android:icon="@drawable/aboutus"
